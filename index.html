@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDNF</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body onload="brython()">
+    <div class="container page-content">
+        <aside>
+            <h1 class="nav-title">Навигация</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li class="active nav-item"><a href="#">Перевод ДНФ в СДНФ</a></li>
+                    <li class="nav-item"><span class="nav-item-arrow"><img src="img\right-arrow.svg" alt=""></span><a href="#">Перевод КНФ в СКНФ</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <section class="calc-content">
+            <h1 class="calc-title">Получение СДНФ</h1>
+            <form>
+                <div class="input-template">
+                    <label for="num_input">Количество переменных</label>
+                    <input id="num_input" type="text" placeholder="3" onkeypress="validate(event)">
+                    <div class="input-describe">
+                        <img src="img\info-icon.svg" alt="" height="14px">
+                        <p>Введите одно целое число</p>
+                    </div>
+                </div>
+                <div class="input-template dnf-input-template">
+                    <label for="str_input">ДНФ выражение</label>
+                    <input id="str_input" type="text" placeholder="ab + ac + !c + !b">
+                    <div class="input-describe">
+                        <img src="img\info-icon.svg" alt="" height="14px">
+                        <p>Введите выражение как в примере, расставляя переменые после каждой переменной и используя "!" как отрицание</p>
+                    </div>
+                </div>
+                
+                <button type="button" id="sendbutton">Отправить</button>
+            </form>
+            <textarea name="" id="textar" cols="30" rows="10"></textarea>
+        </section>
+    </div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/python" src="python\SDNF.py"></script>
+</body>
+</html>
