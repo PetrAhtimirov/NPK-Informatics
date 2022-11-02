@@ -8,3 +8,8 @@ function validate(evt) {
       if(theEvent.preventDefault) theEvent.preventDefault();
     }
   }
+
+let createtext = function () {
+  let textarea = document.getElementById("textar")
+  textarea.classList.remove("zero-opacity")
+}
