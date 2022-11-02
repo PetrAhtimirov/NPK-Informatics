@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+.zero-opacity {
+    opacity: 0;
+}
+
 .container {
     margin-right: auto;
 	margin-left: auto;
@@ -41,7 +45,7 @@ aside {
 
 .nav-title {
     margin: 0;
-    font-size: 32px;
+    font-size: 22px;
 }
 
 nav {
@@ -170,7 +174,7 @@ form {
     background-color: #000;
     border-radius: 25px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .send-button:hover {
@@ -186,8 +190,10 @@ textarea {
     line-height: 1.5;
     border: none;
     border-left: 2px solid #cfcfcf;
+    background-color: #F9F9FA;
     color: black;
     outline: none;
+    transition: 0.3s;
 }
 
 textarea::-webkit-scrollbar {

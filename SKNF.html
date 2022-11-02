@@ -14,13 +14,13 @@
             <h1 class="nav-title">Навигация</h1>
             <nav>
                 <ul class="nav-list">
-                    <li class="active nav-item"><a href="#">Перевод ДНФ в СДНФ</a></li>
-                    <li class="nav-item"><span class="nav-item-arrow"><img src="img\right-arrow.svg" alt=""></span><a href="/SKNF">Перевод КНФ в СКНФ</a></li>
+                    <li class="nav-item"><span class="nav-item-arrow"><img src="img\right-arrow.svg" alt=""></span><a href="/">Перевод ДНФ в СДНФ</a></li>
+                    <li class="active nav-item"><a href="#">Перевод КНФ в СКНФ</a></li>
                 </ul>
             </nav>
         </aside>
         <section class="calc-content">
-            <h1 class="calc-title">Получение СДНФ</h1>
+            <h1 class="calc-title">Получение СКНФ</h1>
             <form>
                 <div class="input-template">
                     <label for="num_input">Количество переменных</label>
@@ -31,8 +31,8 @@
                     </div>
                 </div>
                 <div class="input-template dnf-input-template">
-                    <label for="str_input">ДНФ выражение</label>
-                    <input id="str_input" type="text" placeholder="ab + ac + !c + !b">
+                    <label for="str_input">КНФ выражение</label>
+                    <input id="str_input" type="text" placeholder="(b + a) * (c + !b)">
                     <div class="input-describe">
                         <img src="img\info-icon.svg" alt="" height="14px">
                         <p>Введите выражение, используя латинские символы "a, b, c, d, ..." как перменные и "!" как отрицание</p>
@@ -48,6 +48,6 @@
 <!-- Scripts -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
-<script type="text/python" src="python\SDNF.py"></script>
+<script type="text/python" src="python\SKNF.py"></script>
 </body>
 </html>
