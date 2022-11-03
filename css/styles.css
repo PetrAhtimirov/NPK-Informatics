@@ -36,6 +36,7 @@ a {
     border-radius: 30px;
     background-color: #fff;
     min-width: 1300px;
+    box-shadow: 0px 8px 40px rgba(9, 44, 76, 0.16);
 }
 
 aside {
@@ -129,6 +130,8 @@ nav {
     left: 20px;
     font-size: 12px;
     color: #707070;
+    animation: showContent 0.5s ease normal both;
+	animation-delay: 1.6s;
 }
 
 .creators__link {
