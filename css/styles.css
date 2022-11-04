@@ -37,6 +37,7 @@ a {
     background-color: #fff;
     min-width: 1300px;
     box-shadow: 0px 8px 40px rgba(9, 44, 76, 0.16);
+    max-height: 930px;
 }
 
 aside {
@@ -149,6 +150,11 @@ nav {
 	animation-delay: 0.2s;
 }
 
+.calc-desc {
+    animation: showContent 0.5s ease normal both;
+	animation-delay: 0.4s;
+}
+
 form {
     margin-top: 40px;
     margin-bottom: 50px;
@@ -165,12 +171,12 @@ form {
 
 .input-template:nth-child(1) {
     animation: showContent 0.5s ease normal both;
-	animation-delay: 0.4s;
+	animation-delay: 0.6s;
 }
 
 .input-template:nth-child(2) {
     animation: showContent 0.5s ease normal both;
-	animation-delay: 0.6s;
+	animation-delay: 0.8s;
 }
 
 .input-template label {
@@ -224,7 +230,7 @@ form {
     cursor: pointer;
     margin-top: 5px;
     animation: showContent 0.5s ease normal both;
-	animation-delay: 0.8s;
+	animation-delay: 1s;
 }
 
 .send-button:hover {
