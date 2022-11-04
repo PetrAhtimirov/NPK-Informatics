@@ -25,7 +25,27 @@
         </aside>
         <section class="calc-content">
             <h1 class="calc-title">Получение МДНФ</h1>
-            <p>Перевод ДНФ в МДНФ по методу Куайна — Мак-Класки</p>
+            <p class="calc-desc">Перевод CДНФ в МДНФ по методу Куайна — Мак-Класки</p>
+            <form>
+                <div class="input-template">
+                    <label for="num_input">Количество переменных</label>
+                    <input id="num_input" type="text" placeholder="3" onkeypress="validate(event)">
+                    <div class="input-describe">
+                        <img src="img\info-icon.svg" alt="" height="14px">
+                        <p>Введите одно целое число</p>
+                    </div>
+                </div>
+                <div class="input-template dnf-input-template">
+                    <label for="str_input">СДНФ выражение</label>
+                    <input id="str_input" type="text" placeholder="!a!b!c + !ab!c + a!b!c + a!bc + ab!c + abc">
+                    <div class="input-describe">
+                        <img src="img\info-icon.svg" alt="" height="14px">
+                        <p>Введите выражение, используя латинские символы "a, b, c, d, ..." как перменные и "!" как отрицание.</p>
+                    </div>
+                </div>
+                
+                <button class="send-button" type="button" id="sendbutton" onclick="createtext()">Отправить</button>
+            </form>
             <textarea class="zero-opacity" disabled name="textar" id="textar" cols="30" rows="10"></textarea>
         </section>
     </div>
@@ -33,5 +53,6 @@
 <!-- Scripts -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.8.9/brython.min.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/python" src="python\MDNF.py"></script>
 </body>
 </html>
