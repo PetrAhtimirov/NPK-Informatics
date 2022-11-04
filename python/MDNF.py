@@ -104,7 +104,7 @@ def main(s, n):
     len_last = len(last_a)
     for i in range(len(total_a)):
         while len(total_a_letters[i]) < max_len:
-            total_a_letters[i].append(' ' * len(total_a_letters[i][-1]))
+            total_a_letters[i].append(' ' * len(total_a_letters[i][-1] + '      '))
         while len(total_a[i]) < max_len:
             total_a[i].append(' ' * len(total_a[i][-1]))
         while len(total_terms[i]) < max_len:
