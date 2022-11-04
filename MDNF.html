@@ -26,7 +26,7 @@
         <section class="calc-content">
             <h1 class="calc-title">Получение МДНФ</h1>
             <p class="calc-desc">Перевод CДНФ в МДНФ по методу Куайна — Мак-Класки</p>
-            <form>
+            <form class="mdnf-form">
                 <div class="input-template">
                     <label for="num_input">Количество переменных</label>
                     <input id="num_input" type="text" placeholder="3" onkeypress="validate(event)">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 
-                <button class="send-button" type="button" id="sendbutton" onclick="createtext()">Отправить</button>
+                <button class="send-button" type="submit" id="sendbutton" onclick="createtext()">Отправить</button>
             </form>
             <textarea class="zero-opacity" disabled name="textar" id="textar" cols="30" rows="10"></textarea>
         </section>

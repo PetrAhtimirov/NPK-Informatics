@@ -135,8 +135,7 @@ def main(s, n):
     total_ans += "\nf = " + ans
     return total_ans
  
- 
-print(main("!a!b!c !ab!c a!b!c a!bc ab!c abc", 3))
+
 def senddata(event):
     num = int(document["num_input"].value)
     str = document["str_input"].value
