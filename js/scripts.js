@@ -9,6 +9,13 @@ function validate(evt) {
     }
   }
 
+let onSubmit = function(event) {
+  event.preventDefault();
+}
+
+let form = document.querySelector("form")
+form.addEventListener('submit', onSubmit);
+
 let createtext = function () {
   let textarea = document.getElementById("textar")
   textarea.classList.remove("zero-opacity")

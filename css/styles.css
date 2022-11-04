@@ -160,6 +160,10 @@ form {
     margin-bottom: 50px;
 }
 
+.mdnf-form {
+    margin-top: 30px;
+}
+
 .input-template {
     display: flex;
     flex-direction: column;
