@@ -254,6 +254,8 @@ textarea {
     color: black !important;
     outline: none;
     transition: 0.3s;
+    font-family: monospace;
+    font-size: 16px;
 }
 
 textarea::-webkit-scrollbar {

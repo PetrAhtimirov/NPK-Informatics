@@ -13,6 +13,27 @@ def getbool(a):
     return ans
  
  
+def get_alone(s, f):
+    ans = 1
+    for i in range(len(s)):
+        if s[0] == '!' and i == 0:
+            continue
+        if s[i] == '!':
+            continue
+        if s[i - 1] == '!':
+            ans *= ((f[s[i]] + 1) % 2)
+        else:
+            ans *= f[s[i]]
+    return ans
+ 
+ 
+def get_func(s, f):
+    ans = 0
+    for i in s:
+        ans |= get_alone(i, f)
+    return ans
+ 
+ 
 def check(s1, s2, cnt):
     s3 = ''
     for i in range(len(s1)):
@@ -66,7 +87,6 @@ def a_letters(a):
     return ans
  
  
- 
 def main(s, n):
     a = s.split(" + ")
     a_new = []
@@ -104,7 +124,7 @@ def main(s, n):
     len_last = len(last_a)
     for i in range(len(total_a)):
         while len(total_a_letters[i]) < max_len:
-            total_a_letters[i].append(' ' * len(total_a_letters[i][-1] + '      '))
+            total_a_letters[i].append(' ' * len(total_a_letters[i][-1]))
         while len(total_a[i]) < max_len:
             total_a[i].append(' ' * len(total_a[i][-1]))
         while len(total_terms[i]) < max_len:
@@ -119,22 +139,62 @@ def main(s, n):
                          total_a[i + 1][j] + '\n'
         total_ans += '\n'
     ans = ''
-    for pos in range(n):
-        for i in last_a:
-            if i[pos] == '1':
-                ans += chr(pos + ord('a'))
-                ans += ' + '
-            if i[pos] == '0':
-                ans += "!" + chr(pos + ord('a'))
-                ans += ' + '
+    last_a = a_letters(last_a[0:len_last])
+    for pos in range(len(last_a)):
+        cur_ans = ''
+        for j in range(len(last_a[pos])):
+            if last_a[pos][j] != '*':
+                cur_ans += last_a[pos][j]
+        ans += cur_ans
+        ans += ' + '
     ans = ans[0:len(a) - 2]
     total_ans += "Дальнейшее комбинирование невозможно, итог:\n"
-    last_a = a_letters(last_a[0:len_last])
+ 
+    terms = sorted(ans.split(" + "))
+    for i in range(len(terms)):
+        while terms[i][-1] == ' ':
+            terms[i] = terms[i][0:len(terms[i]) - 1]
+    all_equal = []
+    all_deleted = []
+    all_var = ''
+    for i in range(ord('a'), ord('a') + n):
+        all_var += chr(i)
+    for mask_delete in range(1, (1 << (len(terms) + 1))):
+        cur_term = []
+        cur_deleted = []
+        for bit in range(len(terms)):
+            if (mask_delete >> bit) & 1:
+                cur_term.append(terms[bit])
+            else:
+                cur_deleted.append(terms[bit])
+        equal = 1
+        for mask_bool in range((1 << (n + 1))):
+            f = {}
+            for bit in range(n):
+                f[all_var[bit]] = ((mask_bool >> bit) & 1)
+            equal &= (get_func(terms, f) == get_func(cur_term, f))
+        if equal:
+            all_equal.append(sorted(cur_term))
+            all_deleted.append(sorted(cur_deleted))
+    min_cnt = len(terms)
+    our_min_dnf = terms
+    deleted = []
+    for i in range(len(all_equal)):
+        if len(all_equal[i]) < min_cnt:
+            min_cnt = len(all_equal[i])
+            our_min_dnf = all_equal[i]
+            deleted = all_deleted[i]
     for i in last_a:
         total_ans += i + '\n'
-    total_ans += "\nf = " + ans
-    return total_ans
+    if min_cnt != len(terms):
+        total_ans += "\nФункция f = " + ans + " является избыточной\n"
+        total_ans += "Исключаем: " + ', '.join(deleted)
+        total_ans += "\nf = " + ' + '.join(our_min_dnf)
  
+    else:
+        total_ans += "\nf = " + ans
+    return total_ans
+
 
 def senddata(event):
     num = int(document["num_input"].value)
