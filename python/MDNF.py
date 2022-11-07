@@ -193,6 +193,7 @@ def main(s, n):
  
     else:
         total_ans += "\nf = " + ans
+    total_ans += "\n"*2
     return total_ans
 
 
